@@ -14,6 +14,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.Azure.Mobile;
+using Microsoft.Azure.Mobile.Analytics;
 
 namespace DroneLander.UWP
 {
@@ -39,6 +41,7 @@ namespace DroneLander.UWP
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
+            MobileCenter.Start("f8d7bceb-6dc6-45da-820c-3dcf7f5c1551", typeof(Analytics));
 
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
@@ -46,6 +49,7 @@ namespace DroneLander.UWP
                 this.DebugSettings.EnableFrameRateCounter = true;
             }
 #endif
+            
 
             Frame rootFrame = Window.Current.Content as Frame;
 
